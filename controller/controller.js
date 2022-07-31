@@ -13,3 +13,10 @@ exports.readSingleItems = (req,res) => {
         else res.send(data);
     })
 }
+
+exports.updateItem = (req,res) => {
+    Modal.updateSingleItems(req.params.id,req.body,(err,data) => {
+        if(err) res.status(500).send({error:'Error from controller 3'})
+        else res.send(data);
+    })
+}
