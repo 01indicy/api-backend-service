@@ -22,4 +22,11 @@ Modal.updateSingleItems = (id,body,result) => {
     })
 }
 
+Modal.deleteItems = (id,result) => {
+    sql.query("DELETE tbl_items WHERE Item_ID = ?",[id],(err,data) => {
+        if(err) result(null,err)
+        result(null,data)
+    })
+}
+
 module.exports = Modal;
