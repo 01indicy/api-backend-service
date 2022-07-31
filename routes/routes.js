@@ -1,11 +1,7 @@
 const router = require('express').Router()
+const Controller = require('../controller/controller')
 
-router.get('/',(req,res) => {
-    res.json({msg:'Default Path'})
-})
-
-router.get('/items',(req,res) => {
-    res.json({msg:'fetch all users'})
-})
+router.get('/',(Controller.readAllItems));
+router.get('/items',(Controller.readAllItems));
 
 module.exports = router;
