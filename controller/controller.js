@@ -20,3 +20,10 @@ exports.updateItem = (req,res) => {
         else res.send(data);
     })
 }
+
+exports.deleteItems = (req,res) => {
+    Modal.deleteItems(req.params.id,(err,data) =>{
+        if(err) res.status(500).send({error:'Error from controller 2'})
+        else res.send(data);
+    })
+}
