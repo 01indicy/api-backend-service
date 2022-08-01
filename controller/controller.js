@@ -1,7 +1,7 @@
 const Modal = require('../modal/modal')
 
 exports.readAllItems = (req,res) => {
-    Modal.fetchItems((err,data) =>{
+    Modal.fetchItems(req.body,(err,data) =>{
         if(err) res.status(500).send({error:'Error from controller 1'})
         else res.send(data);
     })
