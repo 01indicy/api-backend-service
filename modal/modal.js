@@ -1,8 +1,11 @@
 const sql = require('../config/dbConfig')
 const Modal = () => {}
 
-Modal.fetchItems = result => {
-    sql.query("SELECT * FROM tbl_items LIMIT 20",(err,data) =>{
+Modal.fetchItems = (request,result) => {
+    const page = parseInt(request.page);
+    const limit = parseInt(request.limit);
+    const offset = (page - 1) * limit
+    sql.query("SELECT * FROM tbl_items LIMIT ? OFFSET ?",[limit,offset],(err,data) =>{
         if(err) result(null,err)
         result(null,data)
     })
